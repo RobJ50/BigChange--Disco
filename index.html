@@ -119,6 +119,185 @@
     border-bottom: none !important;
   }
 
+
+  /* ── SECOND RESPONDERS ── */
+  #second-responders {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--bc-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Diagonal slash divider — Simpro style */
+  #second-responders::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      linear-gradient(135deg,
+        rgba(0,159,227,0.04) 0%,
+        transparent 50%,
+        rgba(255,107,53,0.03) 100%
+      );
+    pointer-events: none;
+  }
+
+  .sr-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Large background text — Simpro-style */
+  .sr-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(100px, 16vw, 220px);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(0,159,227,0.07);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  .sr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .sr-left {}
+
+  .sr-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bc-green);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .sr-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--bc-green);
+    flex-shrink: 0;
+  }
+
+  .sr-headline {
+    font-size: clamp(42px, 5vw, 72px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--bc-white);
+    margin-bottom: 32px;
+  }
+  .sr-headline span.sr-accent { color: var(--bc-green); }
+
+  .sr-quote-block {
+    border-left: 3px solid var(--bc-green);
+    padding: 20px 0 20px 28px;
+    margin-bottom: 40px;
+  }
+  .sr-quote-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--bc-light);
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+  .sr-quote-attr {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--bc-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .sr-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+  .sr-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bc-muted);
+    padding: 6px 14px;
+    border: 1px solid var(--bc-border);
+    border-radius: 2px;
+  }
+
+  .sr-verdict {
+    font-size: clamp(18px, 2.2vw, 26px);
+    font-weight: 900;
+    color: var(--bc-white);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    border-top: 1px solid var(--bc-border);
+    padding-top: 28px;
+  }
+  .sr-verdict span { color: var(--bc-accent); }
+
+  /* Right side — vertical stat cards */
+  .sr-right {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .sr-stat-card {
+    background: var(--bc-card);
+    border-left: 3px solid var(--bc-border);
+    padding: 28px 32px;
+    transition: border-color 0.2s;
+    position: relative;
+  }
+  .sr-stat-card:hover { border-left-color: var(--bc-green); }
+  .sr-stat-card .sr-stat-num {
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 900;
+    color: var(--bc-green);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .sr-stat-card .sr-stat-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--bc-white);
+    margin-bottom: 4px;
+  }
+  .sr-stat-card .sr-stat-desc {
+    font-size: 12px;
+    color: var(--bc-muted);
+    line-height: 1.5;
+  }
+  .sr-stat-card.orange .sr-stat-num { color: var(--bc-accent); }
+
+  @media (max-width: 1024px) {
+    .sr-grid { grid-template-columns: 1fr; gap: 48px; }
+    .sr-bg-text { display: none; }
+  }
+
   /* ── NAV ── */
   nav {
     position: fixed;
@@ -927,6 +1106,72 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECOND RESPONDERS -->
+<section id="second-responders">
+  <div class="sr-bg-text">FIELD<br>SERVICE</div>
+  <div class="sr-inner">
+    <div class="sr-grid">
+
+      <div class="sr-left reveal">
+        <div class="sr-eyebrow">The people who keep Britain running</div>
+
+        <h2 class="sr-headline">
+          The second<br>
+          <span class="sr-accent">responders.</span>
+        </h2>
+
+        <div class="sr-quote-block">
+          <p class="sr-quote-text">
+            "They build our homes and schools, maintain our hospitals, protect our businesses,
+            keep air, water, and energy flowing. Even the infrastructure that powers the future
+            of AI — the data centres, the servers, the cooling systems — relies on them.
+            It is unacceptable that they aren't more profitable."
+          </p>
+          <div class="sr-quote-attr">Martin Port, Founder — BigChange</div>
+        </div>
+
+        <div class="sr-tags">
+          <span class="sr-tag">Build it</span>
+          <span class="sr-tag">Maintain it</span>
+          <span class="sr-tag">Restore it</span>
+          <span class="sr-tag">Every single day</span>
+        </div>
+
+        <div class="sr-verdict">
+          When disaster strikes, first responders rush in.<br>
+          The moment they're done — <span>you show up.</span><br>
+          And you never leave until it's fixed.
+        </div>
+      </div>
+
+      <div class="sr-right reveal">
+        <div class="sr-stat-card orange">
+          <div class="sr-stat-num">£150K</div>
+          <div class="sr-stat-label">Lost every year by a £1M field service business</div>
+          <div class="sr-stat-desc">Haemorrhaging to admin, rework and disconnected tools — every single day.</div>
+        </div>
+        <div class="sr-stat-card">
+          <div class="sr-stat-num">18.5 hrs</div>
+          <div class="sr-stat-label">Admin time lost per engineer, per week</div>
+          <div class="sr-stat-desc">Time that should be on the road, fixing things, generating revenue.</div>
+        </div>
+        <div class="sr-stat-card">
+          <div class="sr-stat-num">35</div>
+          <div class="sr-stat-label">Disconnected tasks to complete one job</div>
+          <div class="sr-stat-desc">Across scheduling, dispatch, job sheets, invoicing and payment — in separate tools.</div>
+        </div>
+        <div class="sr-stat-card">
+          <div class="sr-stat-num">60–90</div>
+          <div class="sr-stat-label">Days average invoice-to-payment cycle</div>
+          <div class="sr-stat-desc">Cash sitting uncollected while your business does the work. This is fixable.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
